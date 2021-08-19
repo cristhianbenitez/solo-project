@@ -12,7 +12,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="manifest" href="/manifest.json" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="css/styles.css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -55,10 +54,18 @@
           <a href=""> <img src="initab logo/initab.svg" alt="inittab" /> /></a>
         </div>
         <div class="icons__social-media">
-          <a href=""><i class="fab fa-facebook"></i></a>
-          <a href=""><i class="fab fa-linkedin"></i></a>
-          <a href=""><i class="fab fa-twitter"></i></a>
-          <a href=""><i class="fab fa-reddit"></i></a>
+          <a href="https://www.facebook.com/PipeBenitez25"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/cristhianbenitez/"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://twitter.com/PipeBenitez25"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/cristhianbenitez/"
+            ><i class="fab fa-reddit"></i
+          ></a>
         </div>
       </div>
     </nav>
@@ -77,17 +84,31 @@
         <div class="center-section__top-section">
           <div class="top-section__title">
             <h2><i class="far fa-building"></i> Remote Jobs</h2>
-            <a href="https://remotive.io/remote-jobs">By Remotive.io</a>
+            <a href="https://remoteok.io/">By Remoteok.io</a>
           </div>
           <ul id="js-searches" class="top-section__list"></ul>
         </div>
         <div id="timer-container" class="center-section__buttom-section"></div>
       </div>
       <div class="main-content__right-section">
-        <h2 class="right-section__title">
-          <i class="fab fa-github-alt"></i> Github Javascript Repositories
-        </h2>
-        <ul id="github-repos" class="right-section_repos-list"></ul>
+        <div class="right-section__title">
+          <h2>
+            <i class="fab fa-github-alt"></i> Github Javascript
+            <span id="repos-issues">Repositories</span>
+          </h2>
+          <div class="right-section__javascript">
+            <div id="repos-text" class="title__repos-section">
+              <span>Repos</span>
+              <i id="icon-1" class="fas fa-chevron-up"></i>
+            </div>
+            <div id="issues-text" class="title__issues-section">
+              <span>Issues</span>
+              <i id="icon-2" class="fas"></i>
+            </div>
+          </div>
+        </div>
+        <ul id="github-repos" class="right-section__repos-list"></ul>
+        <ul id="github-issues" class="right-section__issues-list"></ul>
       </div>
     </main>
     <script src="js/index.js"></script>

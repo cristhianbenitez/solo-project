@@ -1,10 +1,12 @@
 const redditUrl = 'https://www.reddit.com/r/javascript.json';
-const jobSearchUrl = 'https://remotive.io/api/remote-jobs?search=front%20end';
-const jsReposURl = 'https://api.github.com/search/repositories?q=javascript';
+const jobSearchUrl = 'https://remoteok.io/api?ref=producthunt&tag=javascript';
+const gitReposURl = 'https://api.github.com/search/repositories?q=javascript';
+const gitIssuesURL = 'https://api.github.com/search/issues?q=javascript';
 
 const redditPostsEl = document.getElementById('reddit-posts');
 const jobsSearchEl = document.getElementById('js-searches');
 const githubReposEl = document.getElementById('github-repos');
+const githubIssuesEl = document.getElementById('github-issues');
 const timeEl = document.getElementById('timer-container');
 
 async function fetchRedditFeeds() {
@@ -37,34 +39,74 @@ fetchRedditFeeds();
 
 async function fetchJobs() {
   const res = await fetch(jobSearchUrl);
-  const data = await res.json();
-  const jobs = data.jobs;
-  jobs.map((job) => {
-    const { url, title } = job;
+  const jobs = await res.json();
+
+  jobs.slice(1).map((job) => {
+    const { apply_url, position } = job;
     jobsSearchEl.innerHTML += `
-    <li><a href=${url}>${title}</a></li>`;
-    return data;
+      <li><a href=${apply_url}>${position}</a></li>`;
   });
 }
 fetchJobs();
 
-async function fetchJsRepos() {
-  const res = await fetch(jsReposURl);
-  const items = await res.json();
-  const repos = items.items;
+const reposEl = document.getElementById('repos-text');
+const issuesEl = document.getElementById('issues-text');
+const icon1 = document.getElementById('icon-1');
+const icon2 = document.getElementById('icon-2');
+const rightTitle = document.getElementById('repos-issues');
 
+reposEl.addEventListener('click', () => {
+  icon2.classList.remove('fa-chevron-up');
+  icon1.classList.add('fa-chevron-up');
+  githubReposEl.style.display = 'block';
+  githubIssuesEl.style.display = 'none';
+  rightTitle.textContent = 'Repositories';
+});
+issuesEl.addEventListener('click', () => {
+  icon1.classList.remove('fa-chevron-up');
+  icon2.classList.add('fa-chevron-up');
+  githubReposEl.style.display = 'none';
+  githubIssuesEl.style.display = 'block';
+  rightTitle.textContent = 'Issues';
+});
+
+async function fetchGitRepos() {
+  const res = await fetch(gitReposURl);
+  const reposItems = await res.json();
+  const repos = reposItems.items;
   repos.map((repo) => {
-    const { full_name, git_url, open_issues } = repo;
+    const { full_name, html_url, open_issues } = repo;
     githubReposEl.innerHTML += `
-    <li class='repos-list__list-item'>
-    <p class='list-item__repo'>Repo: ${full_name}</p>
-    <p class='list-item__issues'>Issue: ${open_issues}</p>
-    <a class='list-item__repo-link' href='${git_url}'>Link</a>
-    </li>`;
+      <li class='repos-list__list-item'>
+      <a href='${html_url}'>
+      <p class='list-item__repo'>Repo: ${full_name}</p>
+      <p class='list-item__issues'>Issue: #${open_issues}</p>
+      <a class='list-item__repo-link' href='${html_url}'>Link to Repository</a>
+      </a>
+      </li>`;
   });
 }
-fetchJsRepos();
 
+fetchGitRepos();
+
+async function fetchGitIssues() {
+  const res = await fetch(gitIssuesURL);
+  const issuesItems = await res.json();
+  const issues = issuesItems.items;
+  issues.map((issue) => {
+    const user = issue.user.login;
+    const { html_url, title } = issue;
+    githubIssuesEl.innerHTML += `
+      <li class='repos-list__list-item'>
+      <a href='${html_url}'>
+      <p class='list-item__repo'>Issue: ${title}}</p>
+      <p class='list-item__issues'>User: ${user}</p>
+      <a class='list-item__repo-link' href='${html_url}'>Link to Repository</a>
+      </a>
+      </li>`;
+  });
+}
+fetchGitIssues();
 setInterval(function formatAMPM() {
   const date = new Date();
 
@@ -85,8 +127,8 @@ setInterval(function formatAMPM() {
     year: 'numeric',
   });
   timeEl.innerHTML = `
-  <h1 class="buttom-section__time">${
-    hours + ':' + minutes
-  }<span>${ampm}</span></h1>
-  <p class="buttom-section__date">${monthDay},${year}</p>`;
+    <h1 class="buttom-section__time">${
+      hours + ':' + minutes
+    }<span>${ampm}</span></h1>
+    <p class="buttom-section__date">${monthDay},${year}</p>`;
 }, 1000);
