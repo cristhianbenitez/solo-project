@@ -23,12 +23,12 @@
 
 ---
 
-$~$ This project was about creating a clone web page of the Tab Extension, <a href='https://initab.com/'>Initab</a>.
+  This project was about creating a clone web page of the Tab Extension, <a href='https://initab.com/'>Initab</a>.
 Basically,Initab is a Chrome Extension for developers, mostly to show information about the lightweight interpreted programming language **Javascript** (JS).
 
-$~$ All that information in shown to the user when creating a new tab in the web browser Google Chrome, the user is able to see some relevant information from said programming language as Posts from Reddit, any past search information from the web browser contain information about JS and issues and pull request from github.
+  All that information in shown to the user when creating a new tab in the web browser Google Chrome, the user is able to see some relevant information from said programming language as Posts from Reddit, any past search information from the web browser contain information about JS and issues and pull request from github.
 
-$~$ Therefore, this clone project was made entirely by myself coming to my own solution not taking too much in account that they could've not be the most effective but the most accurate results by using HTML, CSS and Vanilla Javascript.
+  Therefore, this clone project was made entirely by myself coming to my own solution not taking too much in account that they could've not be the most effective but the most accurate results by using HTML, CSS and Vanilla Javascript.
 
 <br/>
 
@@ -36,7 +36,7 @@ $~$ Therefore, this clone project was made entirely by myself coming to my own s
 
 ---
 
-$~$ On this project I implemmented some of my own features since I couldn't access to the Chrome Browser API, and also copy some of the features from the original one
+   On this project I implemmented some of my own features since I couldn't access to the Chrome Browser API, and also copy some of the features from the original one
 
 ### Some of the features are :
 
@@ -73,7 +73,7 @@ git clone https://github.com/cristhianbenitez/solo-project.git
 
 ### Live Version :
 
-$~$ You could check the project through the [live version](https://cristhianbenitez.github.io/solo-project/)
+   You could check the project through the [live version](https://cristhianbenitez.github.io/solo-project/)
 
 ---
 
