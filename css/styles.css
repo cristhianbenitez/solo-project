@@ -6,7 +6,7 @@
   --main-bg-color: #272936;
   --nav-bg-color: #44475a;
   --fs-h2: 1.1rem;
-  --fs-p: 0.755rem;
+  --fs-p: 0.9rem;
   --fs-nav-list: 0.7rem;
   --ff-roboto: 'Roboto', sans-serif;
   --ff-inconsolata: 'Inconsolata', monospace;
@@ -23,8 +23,84 @@ body {
   color: #f1f5f2;
   height: 100vh;
 }
+/* Nav-Bar Styling */
+.side-nav {
+  width: 200px;
+}
+.list-item a,
+.list-item {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+  margin-left: 0.4em;
+  margin-bottom: 0.7em;
+  font-size: var(--fs-nav-list);
+  text-transform: uppercase;
+}
+.list-item:nth-child(1) a {
+  color: #8be9fd;
+}
+.list-item:nth-child(2) a {
+  color: #50fa7b;
+}
+.list-item:nth-child(3) a {
+  color: #ffb86c;
+}
+.list-item:nth-child(4) a {
+  color: #cf71b1;
+}
+.list-item:nth-child(5) a {
+  color: #bd93f9;
+}
+.list-item:nth-child(6) a {
+  color: #f8f8f2;
+}
+.list-item:nth-child(7) a {
+  color: #e6db74;
+}
+.list-item:nth-child(8) a {
+  color: #8be9fd;
+}
+.icon {
+  background-color: #8be9fd;
+  color: var(--main-bg-color);
+  border-radius: 2px;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  padding: 0.1em;
+  margin-right: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list-item:nth-child(1) i {
+  background-color: #8be9fd;
+}
+.list-item:nth-child(2) i {
+  background-color: #50fa7b;
+}
+.list-item:nth-child(3) i {
+  background-color: #ffb86c;
+}
+.list-item:nth-child(4) i {
+  background-color: #cf71b1;
+}
+.list-item:nth-child(5) i {
+  background-color: #bd93f9;
+}
+.list-item:nth-child(6) i {
+  background-color: #f8f8f2;
+}
+.list-item:nth-child(7) i {
+  background-color: #e6db74;
+}
+.list-item:nth-child(8) i {
+  background-color: #8be9fd;
+}
 
-/* Typography */
+/* Main Content */
 p {
   font-size: var(--fs-p);
   color: white;
@@ -39,7 +115,7 @@ li {
 }
 .left-section__title h2,
 .top-section__title h2,
-.right-section__title {
+.right-section__title h2 {
   text-transform: uppercase;
   text-align: center;
   font-weight: var(--fw-light);
@@ -121,16 +197,94 @@ li {
   color: #e6db74;
   transition: all 0.3s ease-out;
 }
+.center-section__buttom-section {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6272a4;
+}
+.buttom-section__time {
+  font-size: 6rem;
+  font-family: var(--ff-roboto);
+  margin-bottom: 0;
+}
+.buttom-section__time span {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: var(--fw-light);
+}
+.buttom-section__date {
+  font-family: var(--ff-roboto);
+  color: #6272a4;
+  font-size: 1.1rem;
+}
+
+/* right section */
+
+.right-section__title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.right-section__javascript {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.title__repos-section {
+  color: #f1fa81;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+  cursor: pointer;
+}
+.title__issues-section {
+  color: #cf71b1;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.right-section__repos-list,
+.right-section__issues-list {
+  padding: 0;
+}
+.repos-list__list-item {
+  margin-bottom: 3em;
+  border-left: 3px solid var(--nav-bg-color);
+}
+.repos-list__list-item:hover,
+.repos-list__list-item:focus {
+  border-left: 3px solid #50fa7b;
+  transition: ease-in-out 0.5s;
+}
+
+.repos-list__list-item a {
+  text-decoration: none;
+}
+.list-item__repo,
+.list-item__issues,
+.list-item__repo-link {
+  margin-left: 1em;
+}
+.list-item__repo {
+  color: #44679a;
+}
+.list-item__issues {
+  color: #f1fa81;
+}
+.list-item__repo-link {
+  color: #ff79c6;
+}
+
 /* Layout */
 .side-nav {
   background-color: aliceblue;
   display: flex;
   flex-direction: column;
-  height: 100%;
   max-width: 145px;
   background-color: var(--nav-bg-color);
   justify-content: space-between;
-  height: 100vh;
 }
 .side-nav__list {
   justify-content: end;
@@ -185,82 +339,7 @@ li {
 /* @media (max-width: 800px) {
 } */
 
-/* Nav-Bar Styling */
-
-.list-item a,
-.list-item {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  text-decoration: none;
-  margin-left: 0.4em;
-  margin-bottom: 0.7em;
-  font-size: var(--fs-nav-list);
-  text-transform: uppercase;
-}
-.list-item:nth-child(1) a {
-  color: #8be9fd;
-}
-.list-item:nth-child(2) a {
-  color: #50fa7b;
-}
-.list-item:nth-child(3) a {
-  color: #ffb86c;
-}
-.list-item:nth-child(4) a {
-  color: #cf71b1;
-}
-.list-item:nth-child(5) a {
-  color: #bd93f9;
-}
-.list-item:nth-child(6) a {
-  color: #f8f8f2;
-}
-.list-item:nth-child(7) a {
-  color: #e6db74;
-}
-.list-item:nth-child(8) a {
-  color: #8be9fd;
-}
-.icon {
-  background-color: #8be9fd;
-  color: var(--main-bg-color);
-  border-radius: 2px;
-  width: 23px;
-  height: 23px;
-  text-align: center;
-  padding: 0.1em;
-  margin-right: 0.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.list-item:nth-child(1) i {
-  background-color: #8be9fd;
-}
-.list-item:nth-child(2) i {
-  background-color: #50fa7b;
-}
-.list-item:nth-child(3) i {
-  background-color: #ffb86c;
-}
-.list-item:nth-child(4) i {
-  background-color: #cf71b1;
-}
-.list-item:nth-child(5) i {
-  background-color: #bd93f9;
-}
-.list-item:nth-child(6) i {
-  background-color: #f8f8f2;
-}
-.list-item:nth-child(7) i {
-  background-color: #e6db74;
-}
-.list-item:nth-child(8) i {
-  background-color: #8be9fd;
-}
-
-/* MAIN CONTENT */
+/* Scroll Hidden*/
 .main-content__left-section,
 .center-section__top-section,
 .main-content__right-section {
@@ -271,26 +350,4 @@ li {
 .center-section__top-section::-webkit-scrollbar,
 .main-content__right-section::-webkit-scrollbar {
   display: none;
-}
-.center-section__buttom-section {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #6272a4;
-}
-.buttom-section__time {
-  font-size: 6rem;
-  font-family: var(--ff-roboto);
-  margin-bottom: 0;
-}
-.buttom-section__time span {
-  text-transform: uppercase;
-  font-size: 2.5rem;
-  font-weight: var(--fw-light);
-}
-.buttom-section__date {
-  font-family: var(--ff-roboto);
-  color: #6272a4;
-  font-size: 1.1rem;
 }
